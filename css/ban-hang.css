@@ -1,0 +1,166 @@
+.bh-main {
+    max-width: 1000px;
+    width: 95%;
+    margin: 25px auto;
+}
+
+.bh-title {
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.bh-description {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.bh-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.bh-panel {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.bh-panel h3 {
+    margin: 0 0 15px;
+}
+
+.bh-panel label {
+    display: block;
+    margin: 12px 0 5px;
+    font-weight: bold;
+}
+
+.bh-panel label span {
+    color: red;
+}
+
+.bh-panel input,
+.bh-panel select {
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bh-subheading {
+    margin-top: 22px !important;
+}
+
+.bh-price {
+    margin: 15px 0;
+}
+
+.bh-price strong,
+.bh-invoice-heading h3 {
+    color: #007bff;
+}
+
+.bh-btn {
+    padding: 9px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bh-btn-primary {
+    background: #007bff;
+    color: white;
+}
+
+.bh-btn-success {
+    background: #28a745;
+    color: white;
+}
+
+.bh-btn-light {
+    background: #eee;
+    color: #333;
+}
+
+.bh-invoice-heading {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+}
+
+.bh-invoice-heading p {
+    text-align: left;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.bh-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.bh-table th,
+.bh-table td {
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: left;
+}
+
+.bh-table th {
+    background: #eaf3ff;
+}
+
+.bh-empty {
+    text-align: center !important;
+    color: #777;
+}
+
+.bh-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.bh-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding: 12px;
+    background: #fff4e5;
+}
+
+.bh-total strong {
+    color: #e66a00;
+}
+
+.bh-thanks {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 12px;
+}
+
+.bh-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 15px;
+}
+
+.bh-message {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.bh-message.success {
+    color: green;
+}
