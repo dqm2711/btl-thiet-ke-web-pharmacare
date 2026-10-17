@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>PharmaCare - Quản Lý Hiệu Thuốc</title>
+    <link rel="stylesheet" href="css/style-common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo.png" alt="Logo PharmaCare" title="PharmaCare">
+            <h1>PharmaCare</h1>
+        </div>
+
+        <ul class="nav-center">
+            <li><a href="index.html" class="active">Trang chủ</a></li>
+            <li><a href="thuoc.html">Kho thuốc</a></li>
+            <li><a href="ban-hang.html">Bán lẻ</a></li>
+            <li><a href="nhap-kho.html">Nhập kho</a></li>
+            <li><a href="nha-cung-cap.html">Nhà cung cấp</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="nav-hotline">📞 Hotline: 1900 6868</div>
+            <div class="nav-clock">⏰ <span id="clock-display">--:--:--</span></div>
+        </div>
+    </nav>
+
+    <main>
+        <h2 class="db-main-title">Bảng Thống Kê Quầy Thuốc</h2>
+
+        <div class="db-cards">
+            <div class="db-card">
+                <h3>TỔNG DANH MỤC THUỐC</h3>
+                <p id="stat-tong-thuoc">--</p>
+                <small>Đồng bộ từ kho của Hoàng</small>
+            </div>
+            <div class="db-card">
+                <h3>HÓA ĐƠN HÔM NAY</h3>
+                <p id="stat-hoa-don">--</p>
+                <small>Đơn hàng bán lẻ</small>
+            </div>
+            <div class="db-card">
+                <h3>DOANH THU TRONG NGÀY</h3>
+                <p id="stat-doanh-thu">--</p>
+                <small>Tổng tiền theo ca</small>
+            </div>
+            <div class="db-card card-warning-border">
+                <h3>THUỐC CẬN HẠN DÙNG</h3>
+                <p id="stat-can-han" class="text-danger">--</p>
+                <small>Hạn dùng dưới 30 ngày</small>
+            </div>
+        </div>
+
+        <div class="db-box box-danger-border">
+            <h3 class="title-danger">⚠️ Danh Sách Thuốc Sắp Hết Hạn</h3>
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>Mã thuốc</th>
+                        <th>Tên biệt dược</th>
+                        <th>Hạn dùng</th>
+                        <th>Tồn kho</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-can-han">
+                    <!-- Dữ liệu do JS tạo động -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="db-box">
+            <h3 class="title-primary">🏆 Top Thuốc Bán Chạy Trong Tháng</h3>
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>Hạng</th>
+                        <th>Tên biệt dược</th>
+                        <th>Quy cách</th>
+                        <th>Đã bán</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-ban-chay">
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PharmaCare System - Hệ Thống Quản Lý Hiệu Thuốc</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
