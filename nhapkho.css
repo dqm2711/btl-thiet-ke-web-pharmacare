@@ -1,0 +1,472 @@
+/* =========================================
+   PharmaCare - Nhập kho (nhapkho.css)
+   Tất cả selector được gói trong .nhapkho
+   ========================================= */
+
+.nhapkho {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px 30px;
+}
+
+.nhapkho-title {
+    color: #007bff;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Section */
+.nhapkho-section {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+}
+
+.nhapkho-section-title {
+    color: #333333;
+    font-size: 16px;
+    margin-bottom: 14px;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* Form */
+.nhapkho-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.nhapkho-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+}
+
+.nhapkho-col {
+    flex: 1;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nhapkho-col-full {
+    flex: 1 1 100%;
+}
+
+.nhapkho-row-hidden {
+    display: none;
+}
+
+.nhapkho-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555555;
+}
+
+.nhapkho-input {
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    background: #ffffff;
+}
+
+.nhapkho-input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.nhapkho-readonly {
+    background-color: #f1f4f8;
+    color: #333333;
+}
+
+/* Error */
+.nhapkho-error {
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 2px;
+    min-height: 16px;
+}
+
+.nhapkho-empty {
+    font-size: 14px;
+    color: #888888;
+    padding: 12px;
+    text-align: center;
+}
+
+/* Button */
+.nhapkho-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    border: 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    text-decoration: none;
+}
+
+.nhapkho-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.nhapkho-btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+}
+
+.nhapkho-btn-primary:hover:not(:disabled) {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.nhapkho-btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #ffffff;
+}
+
+.nhapkho-btn-success:hover:not(:disabled) {
+    background-color: #218838;
+    border-color: #218838;
+}
+
+.nhapkho-btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #ffffff;
+}
+
+.nhapkho-btn-danger:hover:not(:disabled) {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+
+.nhapkho-btn-outline {
+    background-color: #ffffff;
+    border-color: #999999;
+    color: #555555;
+}
+
+.nhapkho-btn-outline:hover:not(:disabled) {
+    background-color: #f1f4f8;
+    border-color: #666666;
+}
+
+.nhapkho-action {
+    margin-top: 14px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Table */
+.nhapkho-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 12px;
+}
+
+.nhapkho-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.nhapkho-table th,
+.nhapkho-table td {
+    border: 1px solid #dddddd;
+    padding: 9px 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.nhapkho-table th {
+    background-color: #f1f4f8;
+    font-weight: bold;
+    color: #333333;
+}
+
+.nhapkho-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.nhapkho-table tr:hover {
+    background-color: #e7f1ff;
+}
+
+.nhapkho-table-compact th,
+.nhapkho-table-compact td {
+    padding: 7px 9px;
+    font-size: 13px;
+}
+
+/* Tóm tắt */
+.nhapkho-tomtat {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.nhapkho-tomtat-item {
+    font-size: 14px;
+    color: #333333;
+}
+
+.nhapkho-tomtat-item.nhapkho-tomtat-total {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.nhapkho-tomtat-label {
+    color: #666666;
+}
+
+.nhapkho-tomtat-value {
+    font-weight: bold;
+    margin-left: 6px;
+}
+
+/* Thông báo */
+.nhapkho-thongbao {
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
+}
+
+.nhapkho-thongbao.nhapkho-thongbao-success {
+    display: block;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.nhapkho-thongbao.nhapkho-thongbao-error {
+    display: block;
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Modal */
+.nhapkho-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.nhapkho-modal-content {
+    background: #ffffff;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.nhapkho-modal-header {
+    background: #007bff;
+    color: #ffffff;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nhapkho-modal-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nhapkho-modal-close {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nhapkho-modal-body {
+    padding: 16px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.nhapkho-modal-footer {
+    padding: 12px 16px;
+    border-top: 1px solid #dddddd;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.nhapkho-info-row {
+    display: flex;
+    margin-bottom: 6px;
+}
+
+.nhapkho-info-label {
+    width: 140px;
+    color: #555555;
+    font-weight: bold;
+}
+
+.nhapkho-info-total {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid #dddddd;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+/* Lịch sử */
+.nhapkho-section-history .nhapkho-row {
+    margin-bottom: 12px;
+}
+
+.nhapkho-col-button {
+    align-self: flex-end;
+    display: flex;
+    gap: 8px;
+    min-width: auto;
+    flex: 0 0 auto;
+}
+
+/* In */
+#bang-in {
+    display: none;
+    font-family: Arial, sans-serif;
+    color: #333333;
+}
+
+#bang-in h2 {
+    text-align: center;
+    color: #007bff;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.nhapkho-print-info {
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.nhapkho-print-info div {
+    margin-bottom: 4px;
+}
+
+.nhapkho-print-total {
+    margin-top: 16px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.nhapkho-print-total div {
+    margin-bottom: 3px;
+}
+
+.nhapkho-print-total div:last-child {
+    font-weight: bold;
+    color: #dc3545;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .nhapkho {
+        padding: 0 10px 20px;
+    }
+    .nhapkho-section {
+        padding: 12px;
+    }
+    .nhapkho-table th,
+    .nhapkho-table td {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+    .nhapkho-action {
+        flex-direction: column;
+    }
+    .nhapkho-action .nhapkho-btn {
+        width: 100%;
+        margin-right: 0;
+    }
+    .nhapkho-tomtat {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* In - chỉ in phiếu, ẩn các phần không cần */
+@media print {
+    nav, footer, .nhapkho-action, .nhapkho-section-history, .nhapkho-modal, button, a {
+        display: none !important;
+    }
+    .nhapkho-title, .nhapkho-section-title, .nhapkho-section, .nhapkho-table-wrap, .nhapkho-tomtat {
+        display: block !important;
+    }
+    .nhapkho {
+        max-width: 100%;
+        padding: 0;
+        box-shadow: none;
+    }
+    .nhapkho-section {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        margin: 0 0 16px 0;
+        background: #ffffff;
+    }
+    #bang-in {
+        display: block;
+    }
+    .nhapkho-table {
+        font-size: 12px;
+    }
+    .nhapkho-table th,
+    .nhapkho-table td {
+        padding: 6px 8px;
+    }
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+    }
+    .nhapkho-table th {
+        background: #f1f4f8 !important;
+        color: #000 !important;
+    }
+}

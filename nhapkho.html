@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaCare - Nhập kho</title>
+    <link rel="stylesheet" href="css/style-common.css">
+    <link rel="stylesheet" href="nhapkho.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo.png" alt="Logo PharmaCare" title="PharmaCare">
+            <h1>PharmaCare</h1>
+        </div>
+
+        <ul class="nav-center">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="thuoc.html">Kho thuốc</a></li>
+            <li><a href="ban-hang.html">Bán lẻ</a></li>
+            <li><a href="nhapkho.html">Nhập kho</a></li>
+            <li><a href="nha-cung-cap.html">Nhà cung cấp</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="nav-hotline">📞 Hotline: 1900 6868</div>
+            <div class="nav-clock">⏰ <span id="clock-display">--:--:--</span></div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="nhapkho">
+            <h2 class="nhapkho-title">Nhập kho thuốc</h2>
+
+            <!-- Thông tin phiếu -->
+            <section class="nhapkho-section">
+                <h3 class="nhapkho-section-title">Thông tin phiếu nhập</h3>
+                <form class="nhapkho-form" id="form-phieu">
+                    <div class="nhapkho-row">
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Mã phiếu nhập</label>
+                            <input type="text" id="ma-phieu" readonly class="nhapkho-input nhapkho-readonly">
+                        </div>
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Ngày nhập</label>
+                            <input type="date" id="ngay-nhap" class="nhapkho-input" required>
+                            <span id="err-ngay" class="nhapkho-error"></span>
+                        </div>
+                    </div>
+                    <div class="nhapkho-row">
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Nhà cung cấp</label>
+                            <input type="text" id="nha-cung-cap" class="nhapkho-input" placeholder="Nhập tên nhà cung cấp" required>
+                            <span id="err-ncc" class="nhapkho-error"></span>
+                        </div>
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Người nhập</label>
+                            <input type="text" id="nguoi-nhap" class="nhapkho-input" placeholder="Nhập tên người nhập" required>
+                            <span id="err-nguoi" class="nhapkho-error"></span>
+                        </div>
+                    </div>
+                    <div class="nhapkho-row">
+                        <div class="nhapkho-col nhapkho-col-full">
+                            <label class="nhapkho-label">Ghi chú</label>
+                            <input type="text" id="ghi-chu" class="nhapkho-input" placeholder="Ghi chú thêm (nếu có)">
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Thêm thuốc -->
+            <section class="nhapkho-section">
+                <h3 class="nhapkho-section-title">Thêm thuốc vào phiếu</h3>
+                <form class="nhapkho-form" id="form-thuoc">
+                    <div class="nhapkho-row">
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Chọn thuốc có sẵn</label>
+                            <select id="chon-thuoc" class="nhapkho-input">
+                                <option value="">-- Chọn thuốc --</option>
+                            </select>
+                        </div>
+                        <div class="nhapkho-col">
+                            <button type="button" id="btn-tao-moi" class="nhapkho-btn nhapkho-btn-outline">Tạo thuốc mới</button>
+                        </div>
+                    </div>
+                    <div class="nhapkho-row nhapkho-row-hidden" id="row-thuoc-moi">
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Mã thuốc</label>
+                            <input type="text" id="thuoc-ma" class="nhapkho-input" placeholder="Ví dụ: TH10">
+                            <span id="err-ma" class="nhapkho-error"></span>
+                        </div>
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Tên thuốc</label>
+                            <input type="text" id="thuoc-ten" class="nhapkho-input" placeholder="Tên thuốc">
+                            <span id="err-ten" class="nhapkho-error"></span>
+                        </div>
+                    </div>
+                    <div class="nhapkho-row">
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Đơn vị tính</label>
+                            <input type="text" id="thuoc-donvi" class="nhapkho-input" placeholder="Ví dụ: hộp, lọ, ỉ">
+                            <span id="err-donvi" class="nhapkho-error"></span>
+                        </div>
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Số lượng nhập</label>
+                            <input type="number" id="thuoc-soluong" class="nhapkho-input" min="0" step="1" placeholder="0">
+                            <span id="err-soluong" class="nhapkho-error"></span>
+                        </div>
+                    </div>
+                    <div class="nhapkho-row">
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Giá nhập (đơn vị)</label>
+                            <input type="text" id="thuoc-gia" class="nhapkho-input" placeholder="0 đ">
+                            <span id="err-gia" class="nhapkho-error"></span>
+                        </div>
+                        <div class="nhapkho-col">
+                            <label class="nhapkho-label">Thành tiền</label>
+                            <input type="text" id="thuoc-thanhtien" class="nhapkho-input nhapkho-readonly" readonly>
+                        </div>
+                    </div>
+                    <div class="nhapkho-row">
+                        <div class="nhapkho-col nhapkho-col-full">
+                            <button type="submit" id="btn-them-thuoc" class="nhapkho-btn nhapkho-btn-primary">Thêm thuốc vào phiếu</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Bảng chi tiết + tóm tắt -->
+            <section class="nhapkho-section">
+                <h3 class="nhapkho-section-title">Chi tiết phiếu nhập</h3>
+                <div class="nhapkho-table-wrap">
+                    <table class="nhapkho-table" id="bang-chitiet">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã thuốc</th>
+                                <th>Tên thuốc</th>
+                                <th>Đơn vị</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                                <th>Thành tiền</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-chitiet"></tbody>
+                    </table>
+                </div>
+                <div id="err-rong" class="nhapkho-error nhapkho-empty">Chưa có thuốc nào trong phiếu.</div>
+
+                <div class="nhapkho-tomtat">
+                    <div class="nhapkho-tomtat-item">
+                        <span class="nhapkho-tomtat-label">Tổng số mặt hàng:</span>
+                        <span class="nhapkho-tomtat-value" id="tong-mat-hang">0</span>
+                    </div>
+                    <div class="nhapkho-tomtat-item">
+                        <span class="nhapkho-tomtat-label">Tổng số lượng thuốc:</span>
+                        <span class="nhapkho-tomtat-value" id="tong-so-luong">0</span>
+                    </div>
+                    <div class="nhapkho-tomtat-item nhapkho-tomtat-total">
+                        <span class="nhapkho-tomtat-label">Tổng tiền nhập kho:</span>
+                        <span class="nhapkho-tomtat-value" id="tong-tien">0 đ</span>
+                    </div>
+                </div>
+
+                <div class="nhapkho-action">
+                    <button type="button" id="btn-luu" class="nhapkho-btn nhapkho-btn-success">Lưu phiếu nhập</button>
+                    <button type="button" id="btn-lam-moi" class="nhapkho-btn nhapkho-btn-outline">Làm mới phiếu</button>
+                    <button type="button" id="btn-in" class="nhapkho-btn nhapkho-btn-outline">In phiếu nhập</button>
+                    <button type="button" id="btn-huy" class="nhapkho-btn nhapkho-btn-danger">Hủy phiếu đang soạn</button>
+                </div>
+            </section>
+
+            <!-- Thông báo -->
+            <div id="thong-bao" class="nhapkho-thongbao"></div>
+
+            <!-- Lịch sử nhập kho -->
+            <section class="nhapkho-section nhapkho-section-history">
+                <h3 class="nhapkho-section-title">Lịch sử nhập kho</h3>
+                <div class="nhapkho-row">
+                    <div class="nhapkho-col">
+                        <label class="nhapkho-label">Tìm kiếm</label>
+                        <input type="text" id="tim-kiem" class="nhapkho-input" placeholder="Mã phiếu, nhà cung cấp, tên thuốc...">
+                    </div>
+                    <div class="nhapkho-col">
+                        <label class="nhapkho-label">Từ ngày</label>
+                        <input type="date" id="loc-tu" class="nhapkho-input">
+                    </div>
+                    <div class="nhapkho-col">
+                        <label class="nhapkho-label">Đến ngày</label>
+                        <input type="date" id="loc-den" class="nhapkho-input">
+                    </div>
+                    <div class="nhapkho-col nhapkho-col-button">
+                        <button type="button" id="btn-loc" class="nhapkho-btn nhapkho-btn-outline">Lọc</button>
+                        <button type="button" id="btn-loc-reset" class="nhapkho-btn nhapkho-btn-outline">Reset</button>
+                    </div>
+                </div>
+                <div class="nhapkho-table-wrap">
+                    <table class="nhapkho-table" id="bang-lich-su">
+                        <thead>
+                            <tr>
+                                <th>Mã phiếu</th>
+                                <th>Ngày nhập</th>
+                                <th>Nhà cung cấp</th>
+                                <th>Người nhập</th>
+                                <th>Số mặt hàng</th>
+                                <th>Tổng số lượng</th>
+                                <th>Tổng tiền</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-lich-su"></tbody>
+                    </table>
+                </div>
+                <div id="err-lich-su" class="nhapkho-error nhapkho-empty">Chưa có phiếu nhập nào.</div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PharmaCare System - Hệ Thống Quản Lý Hiệu Thuốc</p>
+    </footer>
+
+    <!-- Modal xem chi tiết -->
+    <div id="modal-chitiet" class="nhapkho-modal">
+        <div class="nhapkho-modal-content">
+            <div class="nhapkho-modal-header">
+                <h3 class="nhapkho-modal-title">Chi tiết phiếu nhập</h3>
+                <button type="button" id="btn-dong-modal" class="nhapkho-modal-close">×</button>
+            </div>
+            <div class="nhapkho-modal-body">
+                <div class="nhapkho-info-row"><span class="nhapkho-info-label">Mã phiếu:</span> <span id="mct-ma-phieu"></span></div>
+                <div class="nhapkho-info-row"><span class="nhapkho-info-label">Ngày nhập:</span> <span id="mct-ngay"></span></div>
+                <div class="nhapkho-info-row"><span class="nhapkho-info-label">Nhà cung cấp:</span> <span id="mct-ncc"></span></div>
+                <div class="nhapkho-info-row"><span class="nhapkho-info-label">Người nhập:</span> <span id="mct-nguoi"></span></div>
+                <div class="nhapkho-info-row"><span class="nhapkho-info-label">Ghi chú:</span> <span id="mct-ghichu"></span></div>
+                <table class="nhapkho-table nhapkho-table-compact">
+                    <thead>
+                        <tr><th>Mã thuốc</th><th>Tên thuốc</th><th>Đơn vị</th><th>Số lượng</th><th>Đơn giá</th><th>Thành tiền</th></tr>
+                    </thead>
+                    <tbody id="mct-tbody"></tbody>
+                </table>
+                <div class="nhapkho-info-row nhapkho-info-total">
+                    <span class="nhapkho-info-label">Tổng tiền:</span> <span id="mct-tong-tien"></span>
+                </div>
+            </div>
+            <div class="nhapkho-modal-footer">
+                <button type="button" id="btn-in-phieu" class="nhapkho-btn nhapkho-btn-outline">In phiếu này</button>
+                <button type="button" id="btn-dong-modal2" class="nhapkho-btn nhapkho-btn-primary">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khung in (ẩn bình thường) -->
+    <div id="bang-in" class="nhapkho-print">
+        <h2>Phiếu nhập kho</h2>
+        <div class="nhapkho-print-info">
+            <div><strong>Mã phiếu:</strong> <span id="pi-ma-phieu"></span></div>
+            <div><strong>Ngày nhập:</strong> <span id="pi-ngay"></span></div>
+            <div><strong>Nhà cung cấp:</strong> <span id="pi-ncc"></span></div>
+            <div><strong>Người nhập:</strong> <span id="pi-nguoi"></span></div>
+            <div><strong>Ghi chú:</strong> <span id="pi-ghichu"></span></div>
+        </div>
+        <table class="nhapkho-table nhapkho-table-compact">
+            <thead>
+                <tr><th>Mã thuốc</th><th>Tên thuốc</th><th>Đơn vị</th><th>Số lượng</th><th>Đơn giá</th><th>Thành tiền</th></tr>
+            </thead>
+            <tbody id="pi-tbody"></tbody>
+        </table>
+        <div class="nhapkho-print-total">
+            <div><strong>Tổng số lượng:</strong> <span id="pi-tong-soluong"></span></div>
+            <div><strong>Tổng tiền:</strong> <span id="pi-tong-tien"></span></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="nhapkho.js"></script>
+</body>
+</html>
