@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaCare - Bán lẻ</title>
+    <link rel="stylesheet" href="css/style-common.css">
+    <link rel="stylesheet" href="css/ban-hang.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo.png" alt="Logo PharmaCare">
+            <h1>PharmaCare</h1>
+        </div>
+        <ul class="nav-center">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="thuoc.html">Kho thuốc</a></li>
+            <li><a href="ban-hang.html" class="active">Bán lẻ</a></li>
+            <li><a href="nhap-kho.html">Nhập kho</a></li>
+            <li><a href="nha-cung-cap.html">Nhà cung cấp</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="nav-hotline">☎ Hotline: 1900 6868</div>
+            <div class="nav-clock">⏰ <span id="clock-display">--:--:--</span></div>
+        </div>
+    </nav>
+
+    <main class="bh-main">
+        <h2 class="bh-title">Bán thuốc lẻ</h2>
+        <p class="bh-description">Nhập thông tin khách hàng, chọn thuốc và lập hóa đơn bán lẻ.</p>
+
+        <div class="bh-layout">
+            <section class="bh-panel">
+                <h3>Thông tin khách hàng</h3>
+                <form id="customer-form" novalidate>
+                    <label for="customer-name">Họ và tên <span>*</span></label>
+                    <input id="customer-name" type="text" placeholder="Nhập họ tên khách hàng">
+
+                    <label for="customer-phone">Số điện thoại <span>*</span></label>
+                    <input id="customer-phone" type="tel" maxlength="10" placeholder="Ví dụ: 0987654321">
+
+                    <h3 class="bh-subheading">Chọn thuốc</h3>
+                    <label for="medicine-select">Tên thuốc</label>
+                    <select id="medicine-select">
+                        <option value="">-- Chọn thuốc --</option>
+                    </select>
+
+                    <label for="medicine-quantity">Số lượng</label>
+                    <input id="medicine-quantity" type="number" min="1" value="1">
+
+                    <p class="bh-price">Đơn giá: <strong id="medicine-price">0 ₫</strong></p>
+                    <button class="bh-btn bh-btn-primary" type="button" id="add-medicine">Thêm vào hóa đơn</button>
+                    <p class="bh-message" id="form-message" role="status"></p>
+                </form>
+            </section>
+
+            <section class="bh-panel bh-invoice" id="print-area">
+                <div class="bh-invoice-heading">
+                    <h3>PHARMA CARE</h3>
+                    <h2>HÓA ĐƠN BÁN LẺ</h2>
+                    <p>Mã hóa đơn: <strong id="invoice-code">PC-001</strong></p>
+                    <p>Ngày lập: <strong id="invoice-date"></strong></p>
+                    <p>Khách hàng: <strong id="invoice-customer">Chưa nhập</strong></p>
+                    <p>Điện thoại: <strong id="invoice-phone">Chưa nhập</strong></p>
+                </div>
+
+                <table class="bh-table">
+                    <thead>
+                        <tr>
+                            <th>Tên thuốc</th>
+                            <th>SL</th>
+                            <th>Đơn giá</th>
+                            <th>Thành tiền</th>
+                            <th class="bh-no-print">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-items">
+                        <tr id="empty-row"><td colspan="5" class="bh-empty">Chưa có thuốc trong hóa đơn</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="bh-total">
+                    <span>Tổng thanh toán</span>
+                    <strong id="invoice-total">0 ₫</strong>
+                </div>
+                <p class="bh-thanks">Cảm ơn quý khách. Chúc quý khách sức khỏe!</p>
+                <div class="bh-actions bh-no-print">
+                    <button class="bh-btn bh-btn-light" type="button" id="reset-invoice">Làm mới</button>
+                    <button class="bh-btn bh-btn-primary" type="button" id="print-invoice">In hóa đơn</button>
+                    <button class="bh-btn bh-btn-success" type="button" id="confirm-sale">Xác nhận bán</button>
+                </div>
+                <p class="bh-message bh-no-print" id="invoice-message" role="status"></p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PharmaCare System - Hệ Thống Quản Lý Hiệu Thuốc</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/ban-hang.js"></script>
+</body>
+</html>
