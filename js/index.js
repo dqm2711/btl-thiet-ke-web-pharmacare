@@ -6,6 +6,12 @@ var dsMacDinh = [
     { ma: "TH05", ten: "Berberin Mộc Hương", hanDung: "2027-08-15", ton: 95 }
 ];
 
+var dsHoaDonMacDinh = [
+    { maHD: "HD01", thoiGian: "08:30" },
+    { maHD: "HD02", thoiGian: "09:15" },
+    { maHD: "HD03", thoiGian: "10:45" }
+];
+
 var dsBanChay = [
     { hang: "#1", ten: "Panadol Extra", quyCach: "Hộp 15 vỉ", ban: 145 },
     { hang: "#2", ten: "Paracetamol 500mg", quyCach: "Hộp 10 vỉ", ban: 112 },
@@ -19,18 +25,19 @@ window.onload = function () {
 
 function tinhToanDashboard() {
     var dsThuoc = JSON.parse(localStorage.getItem("danhSachThuoc"));
-
     if (!dsThuoc || dsThuoc.length === 0) {
         dsThuoc = dsMacDinh;
         localStorage.setItem("danhSachThuoc", JSON.stringify(dsThuoc));
     }
-
-    // 1. Cập nhật số liệu các Card
     document.getElementById("stat-tong-thuoc").innerText = dsThuoc.length + " loại";
-    document.getElementById("stat-hoa-don").innerText = "28 đơn";
-    document.getElementById("stat-doanh-thu").innerText = "4.650.000 đ";
 
-    // 2. Quét tìm thuốc cận hạn (< 30 ngày) và nạp vào bảng
+    var dsHoaDon = JSON.parse(localStorage.getItem("danhSachHoaDon"));
+    if (!dsHoaDon) {
+        dsHoaDon = dsHoaDonMacDinh;
+        localStorage.setItem("danhSachHoaDon", JSON.stringify(dsHoaDon));
+    }
+    document.getElementById("stat-hoa-don").innerText = dsHoaDon.length + " đơn";
+
     var homNay = new Date();
     var demCanHan = 0;
     var tbodyCanHan = document.getElementById("tbody-can-han");
@@ -52,7 +59,6 @@ function tinhToanDashboard() {
             "</tr>";
         }
     }
-
     document.getElementById("stat-can-han").innerText = demCanHan + " loại";
 }
 
