@@ -1,0 +1,329 @@
+/* =========================================
+   PharmaCare - Kho thuốc (thuoc.css)
+   ========================================= */
+
+.thuoc-main {
+    max-width: 1100px;
+    width: 95%;
+    margin: 25px auto 40px;
+}
+
+.thuoc-title {
+    color: #007bff;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.thuoc-desc {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Section */
+.thuoc-section {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+    margin-bottom: 22px;
+}
+
+.thuoc-section-title {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+/* Form */
+.thuoc-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.thuoc-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+}
+
+.thuoc-col {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.thuoc-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+}
+
+.thuoc-label .required {
+    color: #dc3545;
+}
+
+.thuoc-input {
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.thuoc-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+.thuoc-input.invalid {
+    border-color: #dc3545;
+}
+
+.thuoc-error {
+    font-size: 12px;
+    color: #dc3545;
+    min-height: 16px;
+}
+
+/* Buttons */
+.thuoc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.thuoc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.thuoc-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.thuoc-btn-primary {
+    background: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+.thuoc-btn-primary:hover:not(:disabled) {
+    background: #0056b3;
+    border-color: #0056b3;
+}
+
+.thuoc-btn-success {
+    background: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+
+.thuoc-btn-success:hover:not(:disabled) {
+    background: #218838;
+}
+
+.thuoc-btn-outline {
+    background: #fff;
+    border-color: #999;
+    color: #555;
+}
+
+.thuoc-btn-outline:hover:not(:disabled) {
+    background: #f1f4f8;
+}
+
+.thuoc-btn-danger {
+    background: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.thuoc-btn-danger:hover {
+    background: #c82333;
+}
+
+.thuoc-btn-edit {
+    background: #ffc107;
+    border-color: #ffc107;
+    color: #333;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.thuoc-btn-edit:hover {
+    background: #e0a800;
+}
+
+/* Message */
+.thuoc-message {
+    font-size: 13px;
+    margin-top: 8px;
+    min-height: 18px;
+}
+
+.thuoc-message.success {
+    color: #155724;
+}
+
+.thuoc-message.error {
+    color: #dc3545;
+}
+
+/* Toolbar */
+.thuoc-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.thuoc-search-wrap {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.thuoc-search {
+    min-width: 220px;
+}
+
+.thuoc-select {
+    min-width: 160px;
+}
+
+/* Table */
+.thuoc-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 12px;
+}
+
+.thuoc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.thuoc-table th,
+.thuoc-table td {
+    border: 1px solid #ddd;
+    padding: 9px 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.thuoc-table th {
+    background-color: #f1f4f8;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+}
+
+/* CSS bảng thuốc chẵn lẻ (yêu cầu task) */
+.thuoc-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.thuoc-table tbody tr:nth-child(even) {
+    background-color: #f0f7ff;
+}
+
+.thuoc-table tbody tr:hover {
+    background-color: #e3f0ff;
+}
+
+/* Trạng thái */
+.status-ok {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-canhan {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+.status-hethan {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.status-hethang {
+    color: #6c757d;
+    font-weight: bold;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+/* Summary */
+.thuoc-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #333;
+    padding-top: 6px;
+}
+
+.thuoc-summary strong {
+    color: #007bff;
+}
+
+.thuoc-summary .text-danger strong {
+    color: #dc3545;
+}
+
+/* Empty state */
+.thuoc-empty {
+    text-align: center;
+    color: #888;
+    padding: 20px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .thuoc-col {
+        min-width: 100%;
+    }
+
+    .thuoc-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .thuoc-search-wrap {
+        width: 100%;
+    }
+
+    .thuoc-search,
+    .thuoc-select {
+        flex: 1;
+        min-width: 0;
+    }
+}
