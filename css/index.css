@@ -8,11 +8,6 @@
     margin-bottom: 10px;
 }
 
-.title-primary {
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
 .db-cards {
     display: flex;
     gap: 15px;

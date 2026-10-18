@@ -18,7 +18,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 25px;
+    padding: 8px 15px;           
+    flex-wrap: wrap;         
+    gap: 10px;                 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -84,7 +86,8 @@ nav {
 
 main {
     flex: 1;                     
-    width: 1000px;
+    width: 95%;                
+    max-width: 1000px;          
     margin: 30px auto;
 }
 

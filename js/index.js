@@ -12,15 +12,8 @@ var dsHoaDonMacDinh = [
     { maHD: "HD03", thoiGian: "10:45" }
 ];
 
-var dsBanChay = [
-    { hang: "#1", ten: "Panadol Extra", quyCach: "Hộp 15 vỉ", ban: 145 },
-    { hang: "#2", ten: "Paracetamol 500mg", quyCach: "Hộp 10 vỉ", ban: 112 },
-    { hang: "#3", ten: "Berberin Mộc Hương", quyCach: "Lọ 100 viên", ban: 98 }
-];
-
 window.onload = function () {
     tinhToanDashboard();
-    hienThiTopBanChay();
 };
 
 function tinhToanDashboard() {
@@ -62,16 +55,3 @@ function tinhToanDashboard() {
     document.getElementById("stat-can-han").innerText = demCanHan + " loại";
 }
 
-function hienThiTopBanChay() {
-    var tbody = document.getElementById("tbody-ban-chay");
-    tbody.innerHTML = "";
-    for (var i = 0; i < dsBanChay.length; i++) {
-        var item = dsBanChay[i];
-        tbody.innerHTML += "<tr>" +
-            "<td><strong>" + item.hang + "</strong></td>" +
-            "<td>" + item.ten + "</td>" +
-            "<td>" + item.quyCach + "</td>" +
-            "<td>" + item.ban + " hộp</td>" +
-        "</tr>";
-    }
-}
