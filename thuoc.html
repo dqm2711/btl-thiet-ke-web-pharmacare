@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaCare - Kho thuốc</title>
+    <link rel="stylesheet" href="css/style-common.css">
+    <link rel="stylesheet" href="css/thuoc.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo.png" alt="Logo PharmaCare" title="PharmaCare">
+            <h1>PharmaCare</h1>
+        </div>
+
+        <ul class="nav-center">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="thuoc.html" class="active">Kho thuốc</a></li>
+            <li><a href="ban-hang.html">Bán lẻ</a></li>
+            <li><a href="nhap-kho.html">Nhập kho</a></li>
+            <li><a href="nha-cung-cap.html">Nhà cung cấp</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="nav-hotline">📞 Hotline: 1900 6868</div>
+            <div class="nav-clock">⏰ <span id="clock-display">--:--:--</span></div>
+        </div>
+    </nav>
+
+    <main class="thuoc-main">
+        <h2 class="thuoc-title">Quản lý Kho thuốc</h2>
+        <p class="thuoc-desc">Thêm, sửa, xóa và theo dõi danh mục thuốc trong kho. Dữ liệu đồng bộ với trang chủ qua localStorage.</p>
+
+        <!-- FORM THÊM / SỬA THUỐC -->
+        <section class="thuoc-section">
+            <h3 class="thuoc-section-title">Form nhập thuốc</h3>
+            <form id="form-thuoc" class="thuoc-form" novalidate>
+                <div class="thuoc-row">
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="ma-thuoc">Mã thuốc <span class="required">*</span></label>
+                        <input type="text" id="ma-thuoc" class="thuoc-input" placeholder="VD: TH01" maxlength="20">
+                        <span class="thuoc-error" id="err-ma"></span>
+                    </div>
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="ten-thuoc">Tên biệt dược <span class="required">*</span></label>
+                        <input type="text" id="ten-thuoc" class="thuoc-input" placeholder="VD: Panadol Extra" maxlength="100">
+                        <span class="thuoc-error" id="err-ten"></span>
+                    </div>
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="quy-cach">Quy cách</label>
+                        <input type="text" id="quy-cach" class="thuoc-input" placeholder="VD: Hộp 15 vỉ" maxlength="50">
+                        <span class="thuoc-error" id="err-quycach"></span>
+                    </div>
+                </div>
+
+                <div class="thuoc-row">
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="don-vi">Đơn vị tính</label>
+                        <input type="text" id="don-vi" class="thuoc-input" placeholder="hộp / lọ / vỉ" value="hộp" maxlength="20">
+                        <span class="thuoc-error" id="err-donvi"></span>
+                    </div>
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="so-luong">Số lượng tồn <span class="required">*</span></label>
+                        <input type="number" id="so-luong" class="thuoc-input" placeholder="0" min="0" step="1">
+                        <span class="thuoc-error" id="err-soluong"></span>
+                    </div>
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="gia-ban">Giá bán (VNĐ)</label>
+                        <input type="number" id="gia-ban" class="thuoc-input" placeholder="0" min="0" step="100">
+                        <span class="thuoc-error" id="err-gia"></span>
+                    </div>
+                </div>
+
+                <div class="thuoc-row">
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="han-dung">Hạn dùng <span class="required">*</span></label>
+                        <input type="date" id="han-dung" class="thuoc-input">
+                        <span class="thuoc-error" id="err-handung"></span>
+                    </div>
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="nha-sx">Nhà sản xuất</label>
+                        <input type="text" id="nha-sx" class="thuoc-input" placeholder="VD: GSK, Sanofi..." maxlength="80">
+                        <span class="thuoc-error" id="err-nhasx"></span>
+                    </div>
+                    <div class="thuoc-col">
+                        <label class="thuoc-label" for="ghi-chu">Ghi chú</label>
+                        <input type="text" id="ghi-chu" class="thuoc-input" placeholder="Ghi chú thêm (nếu có)" maxlength="150">
+                    </div>
+                </div>
+
+                <div class="thuoc-actions">
+                    <button type="submit" class="thuoc-btn thuoc-btn-primary" id="btn-them">Thêm vào bảng</button>
+                    <button type="button" class="thuoc-btn thuoc-btn-success" id="btn-capnhat" style="display:none;">Cập nhật</button>
+                    <button type="button" class="thuoc-btn thuoc-btn-outline" id="btn-huy">Hủy / Làm mới</button>
+                </div>
+                <p class="thuoc-message" id="form-message" role="status"></p>
+            </form>
+        </section>
+
+        <!-- BẢNG DANH SÁCH THUỐC -->
+        <section class="thuoc-section">
+            <div class="thuoc-toolbar">
+                <h3 class="thuoc-section-title">Bảng danh sách kho thuốc</h3>
+                <div class="thuoc-search-wrap">
+                    <input type="text" id="tim-kiem" class="thuoc-input thuoc-search" placeholder="Tìm theo mã hoặc tên thuốc...">
+                    <select id="loc-trangthai" class="thuoc-input thuoc-select">
+                        <option value="all">Tất cả trạng thái</option>
+                        <option value="ok">Còn hạn</option>
+                        <option value="canhan">Cận hạn (≤30 ngày)</option>
+                        <option value="hethan">Hết hạn</option>
+                        <option value="hethang">Hết hàng</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="thuoc-table-wrap">
+                <table class="thuoc-table" id="bang-thuoc">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã thuốc</th>
+                            <th>Tên biệt dược</th>
+                            <th>Quy cách</th>
+                            <th>Đơn vị</th>
+                            <th>Tồn kho</th>
+                            <th>Giá bán</th>
+                            <th>Hạn dùng</th>
+                            <th>Trạng thái</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-thuoc">
+                        <!-- Dữ liệu do JS tạo -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="thuoc-summary">
+                <span>Tổng số loại: <strong id="tong-loai">0</strong></span>
+                <span>Tổng tồn kho: <strong id="tong-ton">0</strong></span>
+                <span class="text-danger">Cận hạn / Hết hạn: <strong id="tong-canhan">0</strong></span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PharmaCare System - Hệ Thống Quản Lý Hiệu Thuốc</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/thuoc.js"></script>
+</body>
+</html>
