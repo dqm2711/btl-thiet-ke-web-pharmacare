@@ -158,3 +158,13 @@ lay("confirm-sale").onclick = function () {
 lay("invoice-date").textContent = new Date().toLocaleDateString("vi-VN");
 hienGia();
 hienHoaDon();
+
+
+var dsHD = JSON.parse(localStorage.getItem("danhSachHoaDon")) || [];
+
+dsHD.push({
+    maHD: "HD" + (dsHD.length + 1),
+    thoiGian: new Date().toLocaleTimeString()
+});
+
+localStorage.setItem("danhSachHoaDon", JSON.stringify(dsHD));
