@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>PharmaCare - Quản Lý Hiệu Thuốc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style-common.css">
+    <link rel="stylesheet" href="css/nha-cung-cap.css">
+
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src="images/logo.png" alt="Logo PharmaCare" title="PharmaCare">
+            <h1>PharmaCare</h1>
+        </div>
+
+        <ul class="nav-center">
+            <li><a href="index.html" class="active">Trang chủ</a></li>
+            <li><a href="thuoc.html">Kho thuốc</a></li>
+            <li><a href="ban-hang.html">Bán lẻ</a></li>
+            <li><a href="nhap-kho.html">Nhập kho</a></li>
+            <li><a href="nha-cung-cap.html">Nhà cung cấp</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="nav-hotline">📞 Hotline: 1900 6868</div>
+            <div class="nav-clock">⏰ <span id="clock-display">--:--:--</span></div>
+        </div>
+    </nav>
+<!-- xoá nội dung trong main và viết phần của từng thành viên vào  -->
+    <main class="ncc-main-container">
+        <h1 class="ncc-title">Quản Lý Danh Bạ Đối Tác & Công Ty Dược</h1>
+
+        <!-- Khu vực tìm kiếm Live-search và Form Thêm -->
+        <div class="ncc-action-bar">
+            <div class="ncc-search-box">
+                <input type="text" id="nccSearchInput" class="ncc-search-input" placeholder="Tìm kiếm tên công ty dược...">
+            </div>
+            <button class="ncc-btn-toggle" id="nccToggleFormBtn">+ Thêm Đối Tác Mới</button>
+        </div>
+
+        <!-- Form thêm nhà cung cấp (ẩn/hiện hoặc hiển thị trực tiếp) -->
+        <div class="ncc-form-wrapper" id="nccFormWrapper">
+            <h3>Thêm Thông Tin Nhà Cung Cấp</h3>
+            <form id="nccAddForm">
+                <div class="ncc-form-group">
+                    <label>Tên Công Ty / Đơn Vị:</label>
+                    <input type="text" id="nccCompanyName" placeholder="Nhập tên công ty dược...">
+                    <small class="error-msg" id="errCompanyName"></small>
+                </div>
+                <div class="ncc-form-group">
+                    <label>Người Liên Hệ:</label>
+                    <input type="text" id="nccContactPerson" placeholder="Nhập tên người đại diện...">
+                    <small class="error-msg" id="errContactPerson"></small>
+                </div>
+                <div class="ncc-form-group">
+                    <label>Số Điện Thoại:</label>
+                    <input type="tel" id="nccPhone" placeholder="Nhập số điện thoại...">
+                    <small class="error-msg" id="errPhone"></small>
+                </div>
+                <div class="ncc-form-group">
+                    <label>Email Đối Tác:</label>
+                    <input type="email" id="nccEmail" placeholder="vd: contact@pharma.com">
+                    <small class="error-msg" id="errEmail"></small>
+                </div>
+                <button type="submit" class="ncc-btn-submit">Lưu Thông Tin</button>
+            </form>
+        </div>
+
+        <!-- Danh sách thẻ liên hệ (Contact Cards) -->
+        <div class="ncc-cards-grid" id="nccCardsContainer">
+            <!-- Thẻ mẫu 1 -->
+            <div class="ncc-card-item" data-name="Công ty Cổ phần Dược phẩm Agimexpharm">
+                <h3>Công ty CP Dược phẩm Agimexpharm</h3>
+                <p><strong>Người liên hệ:</strong> Nguyễn Văn A (Đại diện kinh doanh)</p>
+                <p><strong>SĐT:</strong> <a href="tel:0901234567">090 123 4567</a></p>
+                <p><strong>Email:</strong> <a href="mailto:agimex@pharma.vn">agimex@pharma.vn</a></p>
+            </div>
+            <!-- Thẻ mẫu 2 -->
+            <div class="ncc-card-item" data-name="Công ty TNHH Dược phẩm Hau Giang">
+                <h3>Công ty TNHH Dược phẩm DHG</h3>
+                <p><strong>Người liên hệ:</strong> Trần Thị B (Quản lý khu vực)</p>
+                <p><strong>SĐT:</strong> <a href="tel:0987654321">098 765 4321</a></p>
+                <p><strong>Email:</strong> <a href="mailto:dhg-support@dhgpharma.com.vn">dhg-support@dhgpharma.com.vn</a></p>
+            </div>
+            <!-- Thẻ mẫu 3 -->
+            <div class="ncc-card-item" data-name="Chi nhánh Dược phẩm Imexpharm Miền Bắc">
+                <h3>Chi nhánh Dược phẩm Imexpharm</h3>
+                <p><strong>Người liên hệ:</strong> Lê Hoàng C (Phụ trách đối tác)</p>
+                <p><strong>SĐT:</strong> <a href="tel:0912345678">091 234 5678</a></p>
+                <p><strong>Email:</strong> <a href="mailto:imexpharm@pharma.vn">imexpharm@pharma.vn</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 PharmaCare System - Hệ Thống Quản Lý Hiệu Thuốc</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+<!-- script riêng của từng thành viên -->
+
+</body>
+</html>
