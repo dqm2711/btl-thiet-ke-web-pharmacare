@@ -60,7 +60,8 @@ nav {
     border-radius: 4px;
 }
 
-.nav-center a:hover {
+.nav-center a:hover,
+.nav-center a.active {
     background-color: #0056b3;
 }
 
