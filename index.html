@@ -1,142 +1,75 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PharmaCare - Nhà cung cấp</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaCare - Quản Lý Hiệu Thuốc</title>
+    <link rel="stylesheet" href="css/style-common.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#"><span class="brand-icon">✚</span><span>PharmaCare</span></a>
     <nav>
-      <a href="#home">Trang chủ</a>
-      <a href="#kho">Kho thuốc</a>
-      <a href="#banle">Bán lẻ</a>
-      <a href="#nhapkho">Nhập kho</a>
-      <a class="active" href="#nhacungcap">Nhà cung cấp</a>
+        <div class="nav-left">
+            <img src="images/logo.png" alt="Logo PharmaCare" title="PharmaCare">
+            <h1>PharmaCare</h1>
+        </div>
+
+        <ul class="nav-center">
+            <li><a href="index.html" class="active">Trang chủ</a></li>
+            <li><a href="thuoc.html">Kho thuốc</a></li>
+            <li><a href="ban-hang.html">Bán lẻ</a></li>
+            <li><a href="nhap-kho.html">Nhập kho</a></li>
+            <li><a href="nha-cung-cap.html">Nhà cung cấp</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <div class="nav-hotline">📞 Hotline: 1900 6868</div>
+            <div class="nav-clock">⏰ <span id="clock-display">--:--:--</span></div>
+        </div>
     </nav>
-    <div class="hotline">☎ Hotline: 1900 6868</div>
-  </header>
 
-  <main id="nhacungcap" class="container">
-    <section class="page-heading">
-      <h1>Quản lý nhà cung cấp</h1>
-      <p>Quản lý thông tin đối tác, danh thiếp và tìm kiếm nhà cung cấp. Dữ liệu được lưu trên trình duyệt bằng localStorage.</p>
-    </section>
+    <main>
+        <h2 class="db-main-title">Bảng Thống Kê Quầy Thuốc</h2>
 
-    <section class="panel">
-      <div class="section-title-row">
-        <h2 id="formTitle">Form đối tác &amp; danh thiếp</h2>
-        <span class="required-note">(*) Thông tin bắt buộc</span>
-      </div>
-      <form id="supplierForm" novalidate>
-        <input type="hidden" id="editId">
-        <div class="form-grid">
-          <label>Mã nhà cung cấp <b>*</b>
-            <input id="code" required placeholder="VD: NCC01">
-            <small class="error" id="codeError"></small>
-          </label>
-          <label>Tên nhà cung cấp <b>*</b>
-            <input id="name" required placeholder="VD: Công ty Dược ABC">
-            <small class="error" id="nameError"></small>
-          </label>
-          <label>Người liên hệ
-            <input id="contact" placeholder="VD: Nguyễn Văn An">
-          </label>
-          <label>Email <b>*</b>
-            <input id="email" type="email" required placeholder="VD: lienhe@abc.com">
-            <small class="error" id="emailError"></small>
-          </label>
-          <label>Số điện thoại
-            <input id="phone" type="tel" placeholder="VD: 0901234567">
-          </label>
-          <label>Nhóm đối tác
-            <select id="category">
-              <option value="Dược phẩm">Dược phẩm</option>
-              <option value="Thiết bị y tế">Thiết bị y tế</option>
-              <option value="Vật tư y tế">Vật tư y tế</option>
-              <option value="Khác">Khác</option>
-            </select>
-          </label>
-          <label>Địa chỉ
-            <input id="address" placeholder="Địa chỉ nhà cung cấp">
-          </label>
-          <label>Trạng thái
-            <select id="status">
-              <option value="Đang hợp tác">Đang hợp tác</option>
-              <option value="Tạm ngừng">Tạm ngừng</option>
-              <option value="Tiềm năng">Tiềm năng</option>
-            </select>
-          </label>
-          <label class="full">Ghi chú
-            <textarea id="notes" rows="2" placeholder="Thông tin thêm về đối tác..."></textarea>
-          </label>
+        <div class="db-cards">
+            <div class="db-card">
+                <h3>TỔNG DANH MỤC THUỐC</h3>
+                <p id="stat-tong-thuoc">--</p>
+            </div>
+            <div class="db-card">
+                <h3>HÓA ĐƠN HÔM NAY</h3>
+                <p id="stat-hoa-don">--</p>
+            </div>
+            <div class="db-card card-warning-border">
+                <h3>THUỐC CẬN HẠN DÙNG</h3>
+                <p id="stat-can-han" class="text-danger">--</p>
+                <small>Hạn dùng dưới 30 ngày</small>
+            </div>
         </div>
-        <div class="actions">
-          <button class="btn primary" type="submit" id="submitBtn">Thêm nhà cung cấp</button>
-          <button class="btn secondary" type="button" id="resetBtn">Hủy / Làm mới</button>
-        </div>
-        <p id="formMessage" role="status" aria-live="polite"></p>
-      </form>
-    </section>
 
-    <section class="panel">
-      <div class="section-title-row directory-heading">
-        <h2>Danh bạ đối tác</h2>
-        <div class="filters">
-          <input id="search" type="search" placeholder="Tìm theo mã, tên, người liên hệ...">
-          <select id="filterStatus">
-            <option value="">Tất cả trạng thái</option>
-            <option value="Đang hợp tác">Đang hợp tác</option>
-            <option value="Tạm ngừng">Tạm ngừng</option>
-            <option value="Tiềm năng">Tiềm năng</option>
-          </select>
-          <select id="filterCategory">
-            <option value="">Tất cả nhóm</option>
-            <option value="Dược phẩm">Dược phẩm</option>
-            <option value="Thiết bị y tế">Thiết bị y tế</option>
-            <option value="Vật tư y tế">Vật tư y tế</option>
-            <option value="Khác">Khác</option>
-          </select>
+        <div class="db-box box-danger-border">
+            <h3 class="title-danger">⚠️ Danh Sách Thuốc Sắp Hết Hạn(Dưới 30 Ngày)</h3>
+            <table class="db-table">
+                <thead>
+                    <tr>
+                        <th>Mã thuốc</th>
+                        <th>Tên biệt dược</th>
+                        <th>Hạn dùng</th>
+                        <th>Tồn kho</th>
+                        <th>Trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-can-han">
+                </tbody>
+            </table>
         </div>
-      </div>
-      <p class="results-line" id="resultsCount"></p>
-      <div id="supplierGrid" class="supplier-grid"></div>
-      <div id="emptyState" class="empty-state" hidden>Không tìm thấy nhà cung cấp phù hợp.</div>
-    </section>
+    </main>
 
-    <section class="panel report-panel">
-      <h2>VI. Báo cáo mục VI – Tự đánh giá</h2>
-      <p class="report-intro">Tự đánh giá kết quả thực hiện giao diện quản lý nhà cung cấp theo các yêu cầu của bài tập.</p>
-      <div class="report-grid">
-        <article class="report-item"><span class="report-number">01</span><div><h3>Form đối tác &amp; danh thiếp Cards</h3><p>Hoàn thành form nhập liệu và hiển thị thông tin đối tác dạng thẻ danh thiếp.</p><span class="tag done">Đã thực hiện</span></div></article>
-        <article class="report-item"><span class="report-number">02</span><div><h3>CSS lưới danh bạ đối tác</h3><p>Sử dụng CSS Grid tự điều chỉnh số cột theo kích thước màn hình.</p><span class="tag done">Đã thực hiện</span></div></article>
-        <article class="report-item"><span class="report-number">03</span><div><h3>JS Validate email &amp; lọc tìm kiếm</h3><p>Kiểm tra trường bắt buộc, định dạng email, mã trùng; tìm kiếm theo từ khóa và lọc trạng thái/nhóm.</p><span class="tag done">Đã thực hiện</span></div></article>
-        <article class="report-item"><span class="report-number">04</span><div><h3>Lưu trữ dữ liệu</h3><p>Dữ liệu đối tác được lưu bằng localStorage trên trình duyệt đang sử dụng.</p><span class="tag done">Đã thực hiện</span></div></article>
-      </div>
-      <label class="self-eval">Nhận xét / hướng cải thiện
-        <textarea id="selfEval" rows="3" placeholder="Ví dụ: Giao diện rõ ràng, thao tác thêm/sửa/xóa dễ dùng; có thể cải thiện bằng đăng nhập và đồng bộ dữ liệu máy chủ..."></textarea>
-      </label>
-      <button class="btn secondary" id="saveEval" type="button">Lưu tự đánh giá</button>
-      <span id="evalMessage" class="inline-message"></span>
-    </section>
+    <footer>
+        <p>&copy; 2026 PharmaCare System - Hệ Thống Quản Lý Hiệu Thuốc</p>
+    </footer>
 
-    <section class="panel wireframe-panel">
-      <h2>Wireframe – Trang nhà cung cấp</h2>
-      <p class="report-intro">Sơ đồ bố cục dự kiến của trang quản lý nhà cung cấp.</p>
-      <div class="wireframe">
-        <div class="wf-header">LOGO PharmaCare <span>Điều hướng chính</span><span>Hotline</span></div>
-        <div class="wf-content">
-          <div class="wf-heading">Tiêu đề trang + mô tả</div>
-          <div class="wf-form"><strong>Form đối tác</strong><div class="wf-fields"><i>Mã NCC</i><i>Tên nhà cung cấp</i><i>Email</i><i>Người liên hệ</i><i>Nhóm đối tác</i><i>Trạng thái</i></div><div class="wf-button">Nút Thêm / Làm mới</div></div>
-          <div class="wf-directory"><strong>Danh bạ đối tác</strong><div class="wf-search">Ô tìm kiếm &nbsp; | &nbsp; Bộ lọc trạng thái &nbsp; | &nbsp; Bộ lọc nhóm</div><div class="wf-cards"><i>Thẻ đối tác 01</i><i>Thẻ đối tác 02</i><i>Thẻ đối tác 03</i></div></div>
-          <div class="wf-report">Báo cáo mục VI – Tự đánh giá</div>
-        </div>
-      </div>
-    </section>
-    <footer>© 2026 PharmaCare · Quản lý nhà cung cấp</footer>
-  </main>
-  <script src="script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/index.js"></script>
 </body>
 </html>
