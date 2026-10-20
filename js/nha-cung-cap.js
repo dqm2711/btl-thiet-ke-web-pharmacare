@@ -1,4 +1,3 @@
-// JavaScript cho trang Quản lý Nhà cung cấp
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('nccSearchInput');
     const cardsContainer = document.getElementById('nccCardsContainer');

@@ -1,9 +1,3 @@
-/* =========================================
-   PharmaCare - Kho thuốc (thuoc.js)
-   Form + Validate + Thêm/Sửa/Xóa dòng bảng
-   Đồng bộ localStorage key: danhSachThuoc
-   ========================================= */
-
 (function () {
     "use strict";
 

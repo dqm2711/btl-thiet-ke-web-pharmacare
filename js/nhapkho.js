@@ -1,9 +1,3 @@
-/* =========================================
-   PharmaCare - Nhập kho (nhapkho.js)
-   JavaScript thuần, không dùng thư viện ngoài
-   Tất cả hàm được gói trong window.NhapKho
-   ========================================= */
-
 (function () {
     "use strict";
 
