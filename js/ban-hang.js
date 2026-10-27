@@ -159,9 +159,7 @@ lay("invoice-date").textContent = new Date().toLocaleDateString("vi-VN");
 hienGia();
 hienHoaDon();
 
-
-
-
+//nhom truong them
 var dsHD = JSON.parse(localStorage.getItem("danhSachHoaDon")) || [];
 dsHD.push({
     maHD: "HD" + (dsHD.length + 1),
